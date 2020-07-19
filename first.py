@@ -46,7 +46,7 @@ class Network:
 
     def feedforward(self, a):
         """Return the output of the network if 'a' is an input"""
-        print("---------------\n Feedforward activated")
+        # print("---------------\n Feedforward activated")
         for i, (b, w) in enumerate(zip(self.biases, self.weights)):
             # print("{0}st weights matrix 'w' is \n{1}".format(i, w))
             # time.sleep(2)
@@ -57,8 +57,11 @@ class Network:
             a = sigmoid(np.dot(w, a) + b)
             # print("{0}st output and also next layer input is\n {1}".format(i, a))
             # time.sleep(2)
-        print("---------------")
+        # print("---------------")
         return a
+
+    def SGD(self, training_data, epochs, mini_batch_size, eta, test_data=None):
+        pass
 
 
 network = Network([5, 4, 3, 2])
