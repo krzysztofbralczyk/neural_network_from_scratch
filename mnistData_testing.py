@@ -12,10 +12,14 @@ def load_data():
 
     # print("File mnist.pkl.gz has file type {0}".format(type(f)))
     # print("It contains three tuples 'training_data' 'validation_data' and 'test_data'")
-    # print("Each tuple contains two values: first is array of images and second is array of numbers represented by these images".format())
-    # print("Images (first tuple entry) is in form of {0} with shape(rows, columns) {1}".format(type(training_data[0]), training_data[0].shape))
-    # print("This means, each of 50000 rows is an array of 784 numbers, representing 784 pixels forming greyscale image of a number")
-    # print("Numbers (second tuple entry) is in form of {0} with shape(rows, columns) {1}".format(type(training_data[1]), training_data[1].shape))
+    # print("Each tuple contains two values: first is array of images and second is array of numbers represented by "
+    #       "these images".format())
+    # print("Images (first tuple entry) is in form of {0} with "
+    #       "shape(rows, columns) {1}".format(type(training_data[0]), training_data[0].shape))
+    # print("This means, each of 50000 rows is an array of 784 numbers, representing 784 pixels forming greyscale image "
+    #       "of a number")
+    # print("Numbers (second tuple entry) is in form of {0} with "
+    #       "shape(rows, columns) {1}".format(type(training_data[1]), training_data[1].shape))
     # print("This means second tuple entry is a vector, with each entry representing number shown on image")
 
     f.close()
@@ -53,6 +57,7 @@ def load_data_wrapper():
     validation_data = list(zip(validation_inputs, va_d[1]))
     test_inputs = [np.reshape(x, (784, 1)) for x in te_d[0]]
     test_data = list(zip(test_inputs, te_d[1]))
+    # print(training_data[0][1])
     return training_data, validation_data, test_data
 
 
@@ -60,3 +65,6 @@ def vectorized_result(j):
     e = np.zeros((10, 1))
     e[j] = 1.0
     return e
+
+
+load_data_wrapper()
