@@ -2,8 +2,9 @@ from __future__ import print_function
 from PIL import Image
 import numpy as np
 
-im = Image.open("./assets/cat.jpg")
-im_arr = np.array(im)
+im = Image.open("./assets/cat.jpg").convert("L")
+print(np.array(im))
+im_arr = np.array(im).flatten()
 print(type(im_arr))
 print(im_arr)
 

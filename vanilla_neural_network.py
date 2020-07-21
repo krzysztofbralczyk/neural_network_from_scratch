@@ -2,6 +2,7 @@ import numpy as np
 import time
 import random
 import cv2
+from PIL import Image
 
 
 # import matplotlib.pyplot as plt
@@ -189,41 +190,39 @@ import mnistData_testing as mnist
 
 training_data, validation_data, test_data = mnist.load_data_wrapper()
 net = Network([784, 30, 10])
-net.SGD(training_data, 30, 10, 3.0)
-print(net.feedforward(training_data[0][0]))
+net.SGD(training_data, 5, 10, 3.0, test_data=test_data)
 
 
 
+# TESTING ZONE
+
+# img = cv2.imread("./assets/2.png")
+# img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+# img = cv2.resize(img, (28, 28))
+# img = cv2.bitwise_not(img)
+# img_arr = np.array(img).reshape(1, -1).T/255
+
+# result = net.feedforward(img_arr)
+# print(result)
+# for i, x in enumerate(result):
+#     if x == max(result):
+#         print(i)
 
 
 
+# pixels = training_data[239][0].reshape((28, 28))*255
+# # print(pixels)
+# cv2.imshow("image", pixels)
+# cv2.waitKey()
 
-
-
-
-
-
-
-# network = Network([5, 4, 3, 2])
-# network.feedforward(np.random.randn(5, 1))
-# network.SGD([(1, 2), (3, 4), (5, 6), (5, 6), (5, 6), (5, 6), (5, 6), (5, 6), (5, 6), (5, 6), (5, 6), (5, 6), (5, 6), (5, 6), (5, 6), (5, 6), (5, 6), (5, 6), (5, 6), (5, 6), (5, 6), (5, 6), (5, 6), (5, 6)], 1, 10, 3.0)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+# img = cv2.imread("./assets/2.png")
+# img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+# img = cv2.resize(img, (28, 28))
+# # img = cv2.bitwise_not(img)
+# cv2.imshow('image', img)
+# cv2.waitKey()
+# img_arr = np.array(img).reshape(1, -1).T/255
+# print(img_arr)
 
 
 
